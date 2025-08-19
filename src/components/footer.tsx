@@ -1,10 +1,12 @@
 import { Instagram, Twitter, Facebook, Youtube } from "lucide-react";
-
+import Link from "next/link";
 export default function Footer() {
   return (
-    <div className="flex flex-row justify-around">
+    <div className="flex flex-row justify-around max-x-[1200px]">
       <ul className="space-y-2">
-        <strong className="block mb-2">Помощь</strong>
+        <strong className="block mb-2">
+          <Link href="/questionPage">Помощь</Link>
+        </strong>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
           Статус заказа
         </li>

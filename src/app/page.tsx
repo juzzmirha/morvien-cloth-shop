@@ -13,7 +13,7 @@ export default function Home() {
           className="w-full h-auto object-cover"
         />
         <div className="absolute inset-0 p-6">
-          <Header />
+          <Header variant="white" />
         </div>
       </div>
       <hr className="border-t border-gray-300 border-[1px]" />
