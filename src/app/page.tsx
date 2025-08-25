@@ -1,4 +1,3 @@
-import Image from "next/image";
 import LoginPage from "./auth/login-page/page";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -18,17 +17,17 @@ export default function Home() {
       </div>
       <hr className="border-t border-gray-300 border-[1px]" />
 
-      <div className="p-6 text-center max-w-[1250px] mx-auto">
-        Новинки
+      <div className="p-6 text-center font-medium text-xl max-w-[1250px] mx-auto">
+        <h1 className="my-2">Новинки</h1>
         <img
-          src="./images/news.jpg"
+          src="./images/news2.jpg"
           alt="New cloth"
           className="cursor-pointer"
         />
       </div>
 
       <hr className="border-t border-gray-300 border-[1px]" />
-      <div className="p-6">
+      <div className="p-6 bg-white">
         <Footer />
       </div>
     </div>

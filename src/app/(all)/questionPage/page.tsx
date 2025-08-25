@@ -10,9 +10,15 @@ export default function QuestionPage() {
       </div>
 
       <main className="max-w-[1200px] mx-auto my-6">
-        <h1 className="text-center text-2xl font-bold mb-6">
-          Тебе нужна помощь?
-        </h1>
+        <h1 className="text-center text-4xl font-bold mb-6">Справка</h1>
+
+        <div className="flex justify-center items-center w-full">
+          <input
+            type="text"
+            placeholder="ЧЕМ МЫ МОЖЕМ ВАМ ПОМОЧЬ?"
+            className="w-full max-w-[600px] text-center border-0 border-b border-black outline-none placeholder:text-black placeholder:uppercase tracking-wide py-2"
+          />
+        </div>
 
         <hr className="border-t border-gray-300 border-[1px] my-6 w-screen -mx-[calc((100vw-100%)/2)]" />
         <div className="text-center max-w-[800px] mx-auto">
@@ -20,7 +26,7 @@ export default function QuestionPage() {
             Часто задаваемые вопросы об изделиях, возврате и доставке
           </h1>
           <p>
-            Pull & Bear постоянно ищет новые пути, чтобы повышать уровень
+            Morvien постоянно ищет новые пути, чтобы повышать уровень
             удовлетворенности процессом покупки для всех клиентов. Поэтому,
             чтобы облегчить и упростить процесс покупки на нашем
           </p>

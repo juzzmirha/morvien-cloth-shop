@@ -39,8 +39,8 @@ export default function ClothPage() {
         </div>
       </main>
 
-      <hr className="border-t border-gray-300 border-[1px] my-6" />
-      <div className="p-6">
+      <hr className="border-t border-gray-300 border-[1px] mt-6" />
+      <div className="p-6 bg-white">
         <Footer />
       </div>
     </div>

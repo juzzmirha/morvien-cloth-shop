@@ -9,6 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetFooter,
 } from "@/components/ui/sheet";
 
 interface HeaderProps {
@@ -30,7 +31,7 @@ export default function Header({ variant = "white" }: HeaderProps) {
         <Sheet>
           <SheetTrigger
             className={clsx(
-              "border px-6 py-2 rounded-xl flex flex-row items-center cursor-pointer transition-colors duration-300",
+              "text-lg border px-6 py-2 rounded-xl flex flex-row items-center cursor-pointer transition-colors duration-300",
               hoverColor
             )}
           >
@@ -38,50 +39,85 @@ export default function Header({ variant = "white" }: HeaderProps) {
           </SheetTrigger>
           <SheetContent side="left">
             <SheetHeader>
-              <SheetTitle className="mb-2">Коллекции</SheetTitle>
-              <ul className="space-y-1 mb-4">
-                <li>
-                  <Link
-                    href="/clothPage"
-                    className="cursor-pointer hover:opacity-70 transition-opacity"
-                  >
-                    Лето
-                  </Link>
-                </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Зима
-                </li>
-              </ul>
+              <div className="flex flex-row justify-between p-4">
+                <div>
+                  <SheetTitle className="text-xl">Коллекции</SheetTitle>
+                  <ul className="mb-4 text-lg">
+                    <li>
+                      <Link
+                        href="/clothPage"
+                        className="cursor-pointer hover:opacity-70 transition-opacity"
+                      >
+                        Лето
+                      </Link>
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Зима
+                    </li>
+                  </ul>
 
-              <SheetTitle className="mb-2">Новинки</SheetTitle>
-              <ul className="space-y-1">
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Футболки
+                  <SheetTitle className="text-xl">Новинки</SheetTitle>
+                  <ul className="text-lg">
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Футболки
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Джинсы
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Брюки
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Толстовки
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Рубашки
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Куртки
+                    </li>
+                    <li className="cursor-pointer hover:opacity-70 transition-opacity">
+                      Обувь
+                    </li>
+                  </ul>
+                </div>
+                <div className="flex flex-col gap-4 ml-6">
+                  <div className="flex flex-col items-center text-center">
+                    <img
+                      src="/clothIMG/yankees.jpg"
+                      alt="yankees"
+                      className="w-32 h-40 object-cover rounded-lg shadow-sm cursor-pointer"
+                    />
+                    <h1 className="mt-2 text-lg font-medium">ETW</h1>
+                  </div>
+                  <div className="flex flex-col items-center">
+                    <img
+                      src="/clothIMG/newCloth.jpg"
+                      alt="new cloth"
+                      className="w-32 h-40 object-cover rounded-lg shadow-sm cursor-pointer"
+                    />
+                    <h1 className="mt-2 text-lg font-medium">Новинки</h1>
+                  </div>
+                </div>
+              </div>
+            </SheetHeader>
+            <SheetFooter className="bg-[#e5e5e5] text-md">
+              <ul className="flex flex-row items-center gap-3 text-md text-gray-700">
+                <li className="cursor-pointer hover:underline hover:opacity-80 transition">
+                  Часто задаваемые вопросы
                 </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Джинсы
+                <li className="cursor-pointer hover:underline hover:opacity-80 transition">
+                  Статус заказа
                 </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Брюки
-                </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Толстовки
-                </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Рубашки
-                </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Куртки
-                </li>
-                <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                  Обувь
+                <li className="cursor-pointer hover:underline hover:opacity-80 transition">
+                  Магазины
                 </li>
               </ul>
-            </SheetHeader>
+            </SheetFooter>
           </SheetContent>
         </Sheet>
 
-        <div className="flex gap-[7.5px]">
+        <div className="flex gap-[7.5px] text-lg">
           <a href="" className="relative group">
             Для мужчин
             <span
@@ -114,7 +150,7 @@ export default function Header({ variant = "white" }: HeaderProps) {
 
       <div
         className={clsx(
-          "flex items-center gap-3 p-2 border rounded-lg",
+          "flex items-center gap-3 p-2 border rounded-lg text-lg",
           textColor
         )}
       >
