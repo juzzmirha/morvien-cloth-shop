@@ -4,33 +4,31 @@ export default function Footer() {
   return (
     <div className="flex flex-row justify-around max-x-[1200px] text-lg font-medium">
       <ul className="space-y-2">
-        <strong className="block mb-2">
-          <Link href="/questionPage">Помощь</Link>
-        </strong>
+        <strong className="block mb-2">Помощь</strong>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Статус заказа
+          <Link href="/questionPage">Статус заказа</Link>
         </li>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Часто задаваемые вопросы
+          <Link href="/questionPage">Часто задаваемые вопросы</Link>
         </li>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Обработка заказа
+          <Link href="/questionPage">Обработка заказа</Link>
         </li>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Как сделать возврат
+          <Link href="/questionPage">Как сделать возврат</Link>
         </li>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Доставка
+          <Link href="/questionPage">Доставка</Link>
         </li>
       </ul>
 
       <ul className="space-y-2">
         <strong className="block mb-2">Компания</strong>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          О нас
+          <Link href="/aboutUs">О нас</Link>
         </li>
         <li className="cursor-pointer hover:opacity-70 transition-opacity">
-          Работайте с нами
+          <Link href="/aboutUs">Работайте с нами</Link>
         </li>
       </ul>
 
