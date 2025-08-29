@@ -62,16 +62,16 @@ export default function Header({ variant = "white" }: HeaderProps) {
                       Футболки
                     </li>
                     <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                      Джинсы
+                      Рубашки
                     </li>
                     <li className="cursor-pointer hover:opacity-70 transition-opacity">
                       Брюки
                     </li>
                     <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                      Толстовки
+                      Джинсы
                     </li>
                     <li className="cursor-pointer hover:opacity-70 transition-opacity">
-                      Рубашки
+                      Толстовки
                     </li>
                     <li className="cursor-pointer hover:opacity-70 transition-opacity">
                       Куртки
@@ -118,7 +118,7 @@ export default function Header({ variant = "white" }: HeaderProps) {
         </Sheet>
 
         <div className="flex gap-[7.5px] text-lg">
-          <a href="" className="relative group">
+          <a href="/clothPage" className="relative group">
             Для мужчин
             <span
               className={clsx(

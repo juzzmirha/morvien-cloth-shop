@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import { EB_Garamond, Ubuntu } from "next/font/google";
+import { EB_Garamond } from "next/font/google";
+import { ReduxProvider } from "@/components/providers";
 
 const garamond = EB_Garamond({
   subsets: ["latin"],
   variable: "--font-garamond",
-  display: "swap",
-});
-
-const ubuntu = Ubuntu({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-ubuntu",
   display: "swap",
 });
 
@@ -31,7 +24,7 @@ export default function RootLayout({
       <body
         className={`${garamond.variable} font-garamond antialiased bg-[#f6f6f6]`}
       >
-        {children}
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );
