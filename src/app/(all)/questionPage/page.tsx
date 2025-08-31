@@ -1,5 +1,6 @@
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+"use client";
+
+import { Header, Footer } from "@/components";
 import Link from "next/link";
 import {
   Accordion,

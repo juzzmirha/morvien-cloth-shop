@@ -1,5 +1,15 @@
+export interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+}
+
 export interface ProductState {
-  products: any[];
+  products: Product[];
+  selectedProduct: Product | null;
   loading: boolean;
   error: null | string;
   page: number;
@@ -10,6 +20,7 @@ export enum ProductActionTypes {
   FETCH_PRODUCT = "FETCH_PRODUCT",
   FETCH_PRODUCT_SUCCESS = "FETCH_PRODUCT_SUCCESS",
   FETCH_PRODUCT_ERROR = "FETCH_PRODUCT_ERROR",
+  FETCH_PRODUCT_BY_ID = "FETCH_PRODUCT_BY_ID",
   SET_PRODUCT_PAGE = "SET_PRODUCT_PAGE",
 }
 
@@ -20,6 +31,11 @@ interface FetchProductAction {
 interface FetchProductSuccesAction {
   type: ProductActionTypes.FETCH_PRODUCT_SUCCESS;
   payload: any[];
+}
+
+interface FetchProductGetById {
+  type: ProductActionTypes.FETCH_PRODUCT_BY_ID;
+  payload: Product;
 }
 
 interface FetchProductErrorAction {
@@ -35,5 +51,6 @@ interface SetProductPage {
 export type ProductAction =
   | FetchProductAction
   | FetchProductSuccesAction
+  | FetchProductGetById
   | FetchProductErrorAction
   | SetProductPage;

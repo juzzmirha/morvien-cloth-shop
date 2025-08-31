@@ -1,7 +1,6 @@
 "use-client";
 
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import { Header, Footer } from "@/components";
 import { Shirt, Star, Check, Signature } from "lucide-react";
 export default function AboutUs() {
   return (

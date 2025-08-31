@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import { mockClothes } from "@/mockData/clothData";
+import Link from "next/link";
+import { Header, Footer } from "@/components";
 
 export default function ClothPage() {
   const { products, loading, error } = useTypedSelector(
@@ -23,8 +22,9 @@ export default function ClothPage() {
       <div className="p-6">
         <Header variant="black" />
       </div>
+      <hr className="border-t border-gray-300 border-[1px] mt-6" />
 
-      <main className="max-w-[1200px] mx-auto">
+      <main className="max-w-[1200px] mx-auto mt-4">
         <h1 className="text-center text-2xl font-bold mb-6">Новинки</h1>
 
         {loading && <p className="text-center">Загрузка...</p>}
@@ -32,10 +32,11 @@ export default function ClothPage() {
 
         <div className="grid grid-cols-4 gap-6 justify-items-center">
           {products.map((item) => (
-            <div
+            <Link
               key={item.id}
+              href={`/clothPage/${item.id}`}
               className="w-[280px] border p-4 shadow-sm flex flex-col cursor-pointer
-              transition duration-300 hover:border-black hover:shadow-md"
+      transition duration-300 hover:border-black hover:shadow-md"
             >
               <div className="w-full h-[350px] bg-gray-100 rounded overflow-hidden">
                 <img
@@ -56,7 +57,7 @@ export default function ClothPage() {
                 </div>
                 <p className="font-medium mt-2">Цена: {item.price} ₸</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>

@@ -6,6 +6,7 @@ import {
 
 const initialState: ProductState = {
   products: [],
+  selectedProduct: null,
   page: 1,
   limit: 10,
   error: null,
@@ -29,6 +30,13 @@ export const productReducer = (
         ...state,
         loading: false,
         products: action.payload,
+      };
+
+    case ProductActionTypes.FETCH_PRODUCT_BY_ID:
+      return {
+        ...state,
+        loading: false,
+        selectedProduct: action.payload,
       };
 
     case ProductActionTypes.FETCH_PRODUCT_ERROR:

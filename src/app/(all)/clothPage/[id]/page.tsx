@@ -1,5 +1,9 @@
 "use client";
-import Header from "@/components/header";
+import { useEffect } from "react";
+import { useParams } from "next/navigation";
+import { useAction } from "@/hooks/useAction";
+import { useTypedSelector } from "@/hooks/useTypedSelector";
+import { Header, Footer } from "@/components";
 import { Heart } from "lucide-react";
 import {
   Select,
@@ -14,9 +18,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Footer from "@/components/footer";
 
 export default function ClothById() {
+  const { id } = useParams();
+  const { FetchProductById } = useAction();
+  const { loading, error, selectedProduct } = useTypedSelector(
+    (state) => state.product
+  );
+
+  useEffect(() => {
+    if (id) {
+      FetchProductById(Number(id));
+    }
+  }, [id]);
+
+  if (loading) return <div className="p-6">Loading...</div>;
+  if (error) return <div className="p-6 text-red-500">{error}</div>;
+  if (!selectedProduct) return <div className="p-6">No product found</div>;
+
   return (
     <div>
       <div className="p-6">
@@ -26,32 +45,24 @@ export default function ClothById() {
       <div className="flex flex-col md:flex-row justify-center gap-10 px-6 md:px-16">
         <div className="flex justify-center md:justify-start">
           <img
-            src="/clothIMG/first.jpg"
-            alt="Product"
+            src={selectedProduct.image}
+            alt={selectedProduct.title}
             className="h-[500px] md:h-[600px] object-cover rounded-xl shadow-sm"
           />
         </div>
 
         <div className="w-full max-w-md flex flex-col gap-6">
           <div>
-            <h1 className="text-3xl font-semibold">Джинсовая куртка</h1>
+            <h1 className="text-3xl font-semibold">{selectedProduct.title}</h1>
             <p className="text-2xl mt-2 font-medium text-gray-700">
-              KZT 22.990,00
+              ${selectedProduct.price}
             </p>
             <p className="text-sm text-gray-500 mt-1">
-              Model 184 cm tall and size M
+              Category: {selectedProduct.category}
             </p>
           </div>
 
           <div className="w-full">
-            <div className="flex justify-between text-lg mb-2">
-              <a href="#" className="underline text-black">
-                See measurements
-              </a>
-              <a href="#" className="underline text-blue-600">
-                Find my size
-              </a>
-            </div>
             <Select>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select size" />
@@ -81,64 +92,16 @@ export default function ClothById() {
           >
             <AccordionItem value="item-1">
               <AccordionTrigger className="text-lg font-medium">
-                Product Information
+                Product Description
               </AccordionTrigger>
               <AccordionContent className="flex flex-col gap-4 text-gray-600">
-                <div className="flex flex-col gap-4">
-                  <p>
-                    Our flagship product combines cutting-edge technology with
-                    sleek design. Built with premium materials, it offers
-                    unparalleled performance and reliability.
-                  </p>
-                  <p>
-                    Key features include advanced processing capabilities, and
-                    an intuitive user interface designed for both beginners and
-                    experts.
-                  </p>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger className="text-lg font-medium">
-                Состав и уход
-              </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-gray-600">
-                <div className="flex flex-col gap-4">
-                  <p>
-                    Состав <br />
-                    ВНЕШНЯЯ ЧАСТЬ 100% ХЛОПОК
-                  </p>
-                  <p>
-                    Уход <br />
-                    Машинная стирка при макс. 40ºC короткий отжим. Отбеливать
-                    запрещено. Гладить при макс. 110ºC. Не подвергать химчистке.
-                    Машинная сушка при сниженной температуре.
-                  </p>{" "}
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger className="text-lg font-medium">
-                Return Policy
-              </AccordionTrigger>
-              <AccordionContent className="flex flex-col gap-4 text-gray-600">
-                <div className="flex flex-col gap-4">
-                  <p>
-                    We stand behind our products with a comprehensive 30-day
-                    return policy. If you&apos;re not completely satisfied,
-                    simply return the item in its original condition.
-                  </p>
-                  <p>
-                    Our hassle-free return process includes free return shipping
-                    and full refunds processed within 48 hours of receiving the
-                    returned item.
-                  </p>
-                </div>
+                <p>{selectedProduct.description}</p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </div>
       </div>
+
       <hr className="border-t border-gray-300 border-[1px] mt-6" />
       <div className="p-6 bg-white">
         <Footer />
