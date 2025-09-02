@@ -159,8 +159,77 @@ export default function Header({ variant = "white" }: HeaderProps) {
           placeholder="Поиск..."
           className="flex-1 outline-none border-none bg-transparent"
         />
-        <User className="w-5 h-5 cursor-pointer" />
-        <Handbag className="w-5 h-5 cursor-pointer" />
+        <Sheet>
+          <SheetTrigger>
+            <User className="w-5 h-5 cursor-pointer" />
+          </SheetTrigger>
+          <SheetContent className="m-2 h-[500px] flex flex-col text-center rounded-2xl">
+            <SheetTitle className="text-center mt-4 text-xl font-semibold">
+              Логин / Регистрация
+            </SheetTitle>
+            <div className="flex flex-col gap-6 p-4 overflow-y-auto">
+              <p className="text-base text-gray-600">
+                Введите свой номер телефона или адрес электронной почты
+              </p>
+
+              <input
+                type="text"
+                placeholder="Телефон или email"
+                className="w-full rounded-lg border border-gray-300 px-4 py-3 text-base outline-none 
+                 focus:border-gray-400 hover:border-gray-400 transition"
+              />
+
+              <label className="flex items-center justify-center gap-2 text-base text-gray-700 cursor-pointer">
+                <input type="checkbox" className="h-5 w-5 accent-black" />
+                Запомнить меня
+              </label>
+
+              <button
+                className="bg-black px-8 py-3 rounded-full text-white text-base font-medium 
+                 hover:bg-gray-800 transition cursor-pointer"
+              >
+                Дальше
+              </button>
+
+              <p className="text-sm text-gray-500 leading-snug">
+                Мы используем указанный номер телефона или адрес электронной
+                почты, чтобы отправить тебе проверочный код.
+              </p>
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet>
+          <SheetTrigger>
+            <Handbag className="w-5 h-5 cursor-pointer" />
+          </SheetTrigger>
+
+          <SheetContent className="m-2 h-[500px] flex flex-col rounded-2xl">
+            <SheetTitle />
+
+            <div className="flex h-full flex-col">
+              <div className="flex justify-center items-center gap-6 border-b px-2 pt-2">
+                <button className="pb-2 text-xl border-b-2 border-black text-black font-medium cursor-pointer">
+                  Корзина
+                </button>
+                <button className="pb-2 text-xl text-gray-500 hover:text-black transition cursor-pointer">
+                  Избранное
+                </button>
+              </div>
+
+              <div className="flex-1 flex items-center justify-center px-4">
+                <div className="text-center">
+                  <h1 className="text-2xl font-semibold">
+                    Ваша корзина пуста.
+                  </h1>
+                  <p className="text-xl text-gray-600">
+                    Почему бы не заполнить её нашими предложениями?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   );

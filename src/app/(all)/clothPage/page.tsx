@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useAction } from "@/hooks/useAction";
 import { useTypedSelector } from "@/hooks/useTypedSelector";
 import Link from "next/link";
-import { Header, Footer } from "@/components";
+import { Header, Footer } from "@/components/widgets";
 
 export default function ClothPage() {
   const { products, loading, error } = useTypedSelector(
